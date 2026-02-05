@@ -6,11 +6,12 @@ import bgAbout from "@/assets/bg-about.jpg";
 const About = () => {
   return (
     <section id="sobre" className="py-20 relative overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img src={bgAbout} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-background/95"></div>
-      </div>
+      {/* Parallax Background Image */}
+      <div 
+        className="absolute inset-0 parallax-bg"
+        style={{ backgroundImage: `url(${bgAbout})` }}
+      />
+      <div className="absolute inset-0 bg-background/95"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">

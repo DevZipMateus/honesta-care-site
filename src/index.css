@@ -246,3 +246,19 @@ All colors MUST be HSL.
     opacity: 0.8;
   }
 }
+
+/* Parallax Effect Styles */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  will-change: transform;
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* iOS doesn't support background-attachment: fixed well */
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}

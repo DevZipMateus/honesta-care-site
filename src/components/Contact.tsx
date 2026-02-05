@@ -41,11 +41,12 @@ const Contact = () => {
   };
   return (
     <section id="contato" className="py-20 relative overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img src={bgContact} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-muted/95"></div>
-      </div>
+      {/* Parallax Background Image */}
+      <div 
+        className="absolute inset-0 parallax-bg"
+        style={{ backgroundImage: `url(${bgContact})` }}
+      />
+      <div className="absolute inset-0 bg-muted/95"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
