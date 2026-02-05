@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, Mail } from "lucide-react";
 import { useState } from "react";
 import logoOnesta from "@/assets/logo-onesta.png";
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return <header className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 border-b">
@@ -10,11 +9,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#inicio" className="flex items-center">
-            <img 
-              src={logoOnesta} 
-              alt="Onestà Logo" 
-              className="h-10 w-auto"
-            />
+            <img src={logoOnesta} alt="Onestà Logo" className="h-16 w-auto" />
           </a>
 
           {/* Desktop Navigation */}
