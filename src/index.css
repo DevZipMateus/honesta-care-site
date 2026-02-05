@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Professional Color Palette - Darker Blue, Light Gray, Light Brown */
+    --background: 210 15% 96%;
+    --foreground: 215 25% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 20%;
+
+    /* Darker blue - professional and trustworthy */
+    --primary: 215 75% 20%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 215 35% 80%;
+    --primary-dark: 215 85% 12%;
+    --primary-glow: 215 55% 45%;
+
+    /* Light gray - clean and sophisticated */
+    --secondary: 210 15% 88%;
+    --secondary-foreground: 210 25% 25%;
+    --secondary-light: 210 10% 95%;
+
+    /* Light brown accents */
+    --accent-teal: 185 45% 25%;
+    --accent-warm: 35 45% 75%;
+
+    --muted: 210 15% 93%;
+    --muted-foreground: 210 15% 45%;
+
+    --accent: 210 15% 93%;
+    --accent-foreground: 210 25% 20%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: 215 75% 20%;
+
+    /* Sophisticated gradients using brand palette */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-teal)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent-warm)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-dark)), hsl(var(--primary)), hsl(var(--accent-teal)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(180 20% 96%));
+
+    /* Elegant shadows with brand colors */
+    --shadow-professional: 0 10px 30px -10px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.08);
+    --shadow-glow: 0 0 40px hsl(var(--accent-teal) / 0.25);
+
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 25% 10%;
+    --foreground: 210 15% 92%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 210 15% 92%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 15% 92%;
+
+    --primary: 215 65% 55%;
+    --primary-foreground: 215 25% 10%;
+    --primary-light: 215 35% 75%;
+    --primary-dark: 215 75% 35%;
+    --primary-glow: 215 75% 65%;
+
+    --secondary: 210 15% 25%;
+    --secondary-foreground: 210 15% 85%;
+    --secondary-light: 210 15% 35%;
+
+    --accent-teal: 185 55% 45%;
+    --accent-warm: 35 35% 65%;
+
+    --muted: 215 25% 18%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 215 25% 18%;
+    --accent-foreground: 210 15% 92%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 25% 22%;
+    --input: 215 25% 22%;
+    --ring: 215 65% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Animações de entrada inspiradas no site da Evont */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slideInDown {
+  animation: slideInDown 0.8s ease-out forwards;
+}
+
+/* Delays para animações sequenciais */
+.animation-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+}
+
+.animation-delay-600 {
+  animation-delay: 0.6s;
+}
+
+/* Flowing lines animation for services section */
+@keyframes flow {
+  0%, 100% { 
+    transform: translateX(-100px) translateY(0px);
+    opacity: 0.3;
+  }
+  50% { 
+    transform: translateX(100px) translateY(-20px);
+    opacity: 0.8;
+  }
+}
