@@ -263,12 +263,12 @@ const Services = () => {
               {services.map((service, index) => (
                 <Card 
                   key={index} 
-                  className={`group hover:shadow-card transition-all duration-300 hover:border-primary/30 opacity-0 animate-fadeInUp`}
+                  className={`group card-hover-lift hover:border-primary/30 opacity-0 animate-fadeInUp`}
                   style={{ animationDelay: `${index * 0.1 + 0.2}s` }}
                 >
                   <CardHeader className="text-center">
-                    <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
-                      <service.icon className="w-8 h-8 text-primary" />
+                    <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
+                      <service.icon className="w-8 h-8 text-primary icon-rotate-hover" />
                     </div>
                     <CardTitle className="text-lg text-primary">
                       {service.title}
@@ -344,7 +344,7 @@ const Services = () => {
 
           {/* Process Timeline */}
           <div className="lg:col-span-1">
-            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-primary/20 sticky top-8">
+            <div className="glass-effect rounded-2xl p-6 shadow-lg border border-primary/20 sticky top-8">
               <div className="text-center mb-8">
                 <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                   <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
@@ -364,8 +364,8 @@ const Services = () => {
                   return (
                     <div key={step.id} className="flex items-start gap-4 group">
                       <div className="flex-shrink-0">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent-teal flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                          <Icon className="w-6 h-6 text-white" />
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent-teal flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                          <Icon className="w-6 h-6 text-white group-hover:animate-pulse" />
                         </div>
                         {index < steps.length - 1 && (
                           <div className="w-px h-8 bg-gradient-to-b from-primary/30 to-transparent ml-6 mt-2"></div>
