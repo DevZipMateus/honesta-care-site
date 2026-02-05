@@ -18,7 +18,7 @@ const Hero = () => {
               
               <div className="text-left">
                 <h1 className="text-3xl md:text-4xl text-white leading-tight font-bold xl:text-5xl">
-                  <span className="block text-accent-teal">Onestà Contabilidade</span>
+                  <span className="block">Onestà Contabilidade</span>
                   Gestão e Assessoria
                   <span className="block gradient-text-animated"> para a Área da Saúde</span>
                 </h1>
