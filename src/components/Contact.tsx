@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 import bgContact from "@/assets/bg-contact.jpg";
 
@@ -16,9 +16,24 @@ const Contact = () => {
     profession: '',
     message: ''
   });
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
+  
+  const sectionRef = useRef<HTMLElement>(null);
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrollProgress = -rect.top / window.innerHeight;
+        setOffset(scrollProgress * 100);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -33,20 +48,37 @@ const Contact = () => {
       message: ''
     });
   };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
+
   return (
-    <section id="contato" className="py-20 relative overflow-hidden">
+    <section ref={sectionRef} id="contato" className="py-20 relative overflow-hidden">
       {/* Parallax Background Image */}
       <div 
-        className="absolute inset-0 parallax-bg"
-        style={{ backgroundImage: `url(${bgContact})` }}
+        className="absolute inset-0 will-change-transform"
+        style={{ 
+          backgroundImage: `url(${bgContact})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          transform: `translateY(${offset * 0.3}px) scale(1.1)`
+        }}
       />
       <div className="absolute inset-0 bg-muted/95"></div>
+      
+      {/* Decorative Gold Elements with Parallax */}
+      <div 
+        className="absolute top-20 left-20 w-36 h-36 bg-secondary/20 rounded-full blur-3xl"
+        style={{ transform: `translateY(${offset * -0.15}px)` }}
+      ></div>
+      <div 
+        className="absolute bottom-10 right-1/4 w-28 h-28 bg-secondary/25 rounded-full blur-3xl"
+        style={{ transform: `translateY(${offset * 0.2}px)` }}
+      ></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
@@ -59,7 +91,7 @@ const Contact = () => {
             </p>
           </div>
           
-            <Card className="shadow-lg card-hover-lift bg-secondary/25 border-0">
+          <Card className="shadow-lg card-hover-lift bg-secondary/25 border-0">
             <CardHeader className="bg-secondary/25 rounded-t-lg">
               <CardTitle className="text-xl text-secondary-foreground">Envie sua mensagem</CardTitle>
             </CardHeader>
