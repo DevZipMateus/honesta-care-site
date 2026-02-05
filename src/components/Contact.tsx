@@ -75,6 +75,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="Seu nome completo"
                       required
+                      className="bg-white"
                     />
                   </div>
                   <div>
@@ -87,6 +88,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="seu@email.com"
                       required
+                      className="bg-white"
                     />
                   </div>
                 </div>
@@ -99,6 +101,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="(00) 00000-0000"
+                      className="bg-white"
                     />
                   </div>
                   <div>
@@ -109,6 +112,7 @@ const Contact = () => {
                       value={formData.profession}
                       onChange={handleInputChange}
                       placeholder="Ex: Médico, Dentista..."
+                      className="bg-white"
                     />
                   </div>
                 </div>
@@ -122,6 +126,7 @@ const Contact = () => {
                     placeholder="Como podemos ajudar você?"
                     rows={4}
                     required
+                    className="bg-white"
                   />
                 </div>
                 <Button type="submit" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground" size="lg">
