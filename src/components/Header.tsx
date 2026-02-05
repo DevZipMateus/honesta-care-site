@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Menu, Phone, Mail } from "lucide-react";
+import { Menu, Mail } from "lucide-react";
 import { useState } from "react";
+import logoOnesta from "@/assets/logo-onesta.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +11,7 @@ const Header = () => {
           {/* Logo */}
           <a href="#inicio" className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/b03073d0-4541-4041-9afd-10f76bfc2ea4.png" 
+              src={logoOnesta} 
               alt="Onestà Logo" 
               className="h-10 w-auto"
             />
