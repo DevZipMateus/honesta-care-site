@@ -1,16 +1,27 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Award, MapPin, Users, Clock } from "lucide-react";
+import bgAbout from "@/assets/bg-about.jpg";
+
 const About = () => {
-  return <section id="sobre" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+  return (
+    <section id="sobre" className="py-20 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img src={bgAbout} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-background/95"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
               Sobre a Onestà Contabilidade
             </h2>
             <div className="space-y-6">
-              <p className="text-lg text-muted-foreground leading-relaxed text-justify">Nascida em Santa Maria com o propósito de oferecer serviços contábeis especializados para profissionais da área da saúde. Nós entendemos que a gestão fiscal e financeira pode ser uma dor de cabeça. Por isso, simplificamos cada processo, da abertura da sua empresa à otimização dos seus impostos, para que você tenha a tranquilidade de saber que suas finanças estão em boas mãos.</p>
+              <p className="text-lg text-muted-foreground leading-relaxed text-justify">
+                Nascida em Santa Maria com o propósito de oferecer serviços contábeis especializados para profissionais da área da saúde. Nós entendemos que a gestão fiscal e financeira pode ser uma dor de cabeça. Por isso, simplificamos cada processo, da abertura da sua empresa à otimização dos seus impostos, para que você tenha a tranquilidade de saber que suas finanças estão em boas mãos.
+              </p>
               <p className="text-lg text-muted-foreground leading-relaxed text-justify">
                 Nossa missão é simplificar a vida contábil e fiscal dos profissionais 
                 de saúde, permitindo que eles se concentrem no que fazem de melhor: 
@@ -63,6 +74,8 @@ const About = () => {
           </Card>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default About;
