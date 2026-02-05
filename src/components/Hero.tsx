@@ -84,7 +84,7 @@ const Hero = () => {
           }}>
             <div className="relative flex items-center justify-center">
               {/* Gray circle behind logo */}
-              <div className="absolute w-80 h-80 rounded-full bg-muted-foreground/75"></div>
+              <div className="absolute w-96 h-96 rounded-full bg-muted-foreground/75"></div>
               {/* Logo */}
               <img 
                 src={logoOnesta} 

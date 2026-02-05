@@ -1,11 +1,13 @@
-import { Heart, Phone, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
+import logoOnesta from "@/assets/logo-onesta.png";
+
 const Footer = () => {
   return <footer className="bg-primary/95 text-primary-foreground">
       <div className="container mx-auto px-6 py-16">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Company Info */}
           <div className="space-y-4">
-            <h4 className="text-xl font-bold mb-6 text-primary-foreground">Onestà Contabilidade</h4>
+            <img src={logoOnesta} alt="Onestà Contabilidade Logo" className="h-16 w-auto mb-4" />
             <p className="text-primary-foreground/70 leading-relaxed text-sm">
               Escritório especializado em contabilidade para profissionais da área da saúde.
             </p>
