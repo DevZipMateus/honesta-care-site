@@ -5,7 +5,6 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calculator, ArrowRight, TrendingUp } from "lucide-react";
 import bgCalculator from "@/assets/bg-calculator.jpg";
-import { useParallax } from "@/hooks/use-parallax";
 
 const TaxCalculator = () => {
   const [revenue, setRevenue] = useState("");
@@ -13,8 +12,6 @@ const TaxCalculator = () => {
   const [animatedValue, setAnimatedValue] = useState(0);
   const [showChart, setShowChart] = useState(false);
   const [isCalculating, setIsCalculating] = useState(false);
-
-  const { ref: sectionRef, offset } = useParallax(0.13);
 
   const calculateTax = () => {
     const monthlyRevenue = parseFloat(revenue) || 0;
@@ -27,9 +24,8 @@ const TaxCalculator = () => {
 
     setIsCalculating(true);
 
-    // Cálculos para profissionais da saúde
-    const currentTaxRate = 0.27; // 27% sem planejamento
-    const optimizedTaxRate = 0.114; // 11,4% com planejamento tributário
+    const currentTaxRate = 0.27;
+    const optimizedTaxRate = 0.114;
 
     setTimeout(() => {
       const currentTax = monthlyRevenue * currentTaxRate;
@@ -48,7 +44,6 @@ const TaxCalculator = () => {
       setShowChart(true);
       setIsCalculating(false);
 
-      // Animate the savings value
       setAnimatedValue(0);
       const duration = 2000;
       const steps = 60;
@@ -68,37 +63,27 @@ const TaxCalculator = () => {
   };
 
   return (
-    <section ref={sectionRef} id="calculadora" className="py-20 relative overflow-hidden">
-      {/* Parallax Background Image */}
+    <section id="calculadora" className="py-20 relative overflow-hidden">
+      {/* Fixed Parallax Background Image */}
       <div
-        className="parallax-scroll pointer-events-none"
+        className="absolute inset-0"
         style={{
           backgroundImage: `url(${bgCalculator})`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          transform: `translate3d(0, ${offset}px, 0)`,
+          backgroundAttachment: "fixed",
         }}
       />
-      <div className="absolute inset-0 bg-card/70 backdrop-blur-md pointer-events-none" />
+      <div className="absolute inset-0 bg-white/90" />
 
       {/* Decorative bronze elements */}
-      <div
-        className="absolute top-10 right-10 w-40 h-40 bg-secondary/20 rounded-full blur-3xl pointer-events-none"
-        style={{ transform: `translate3d(0, ${offset * -0.25}px, 0)` }}
-      />
-      <div
-        className="absolute bottom-20 left-10 w-32 h-32 bg-secondary/15 rounded-full blur-3xl pointer-events-none"
-        style={{ transform: `translate3d(0, ${offset * 0.2}px, 0)` }}
-      />
-      <div
-        className="absolute top-1/2 left-1/4 w-24 h-24 bg-secondary/10 rounded-full blur-2xl animate-pulse pointer-events-none"
-        style={{ transform: `translate3d(0, ${offset * -0.15}px, 0)` }}
-      />
+      <div className="absolute top-10 right-10 w-40 h-40 bg-secondary/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 left-10 w-32 h-32 bg-secondary/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-secondary/10 rounded-full blur-2xl animate-pulse pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          {/* Header Section */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 leading-tight">
               Descubra Agora Quanto Você Pode Economizar em Impostos
@@ -109,7 +94,6 @@ const TaxCalculator = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Left Side - Calculator Form */}
             <div className="order-1 lg:order-1">
               <Card className="shadow-lg border border-primary/20 card-hover-lift">
                 <CardContent className="p-8">
@@ -184,17 +168,14 @@ const TaxCalculator = () => {
               </Card>
             </div>
 
-            {/* Right Side - Results */}
             <div className="order-3 lg:order-2">
               {results && showChart && (
                 <div className="bg-gradient-to-br from-primary/5 to-accent-teal/5 rounded-2xl p-6 border border-primary/20">
                   <h3 className="text-xl font-bold text-primary mb-6 text-center">Sua Economia Potencial</h3>
 
-                  {/* Rising Graph Animation */}
                   <div className="relative mb-6">
                     <div className="bg-gradient-to-t from-primary/5 to-transparent rounded-lg p-6 h-40">
                       <div className="flex justify-between items-end h-full">
-                        {/* Current Tax Bar */}
                         <div className="flex flex-col items-center h-full justify-end">
                           <div
                             className="bg-destructive/80 rounded-t-lg w-12 transition-all duration-1000 ease-out flex items-end justify-center pb-2"
@@ -211,12 +192,10 @@ const TaxCalculator = () => {
                           </span>
                         </div>
 
-                        {/* Arrow showing reduction */}
                         <div className="flex items-center mb-8">
                           <ArrowRight className="w-6 h-6 text-accent-teal animate-pulse" />
                         </div>
 
-                        {/* Optimized Tax Bar */}
                         <div className="flex flex-col items-center h-full justify-end">
                           <div
                             className="bg-gradient-to-t from-accent-teal to-accent-teal/80 rounded-t-lg w-12 transition-all duration-1500 delay-500 ease-out flex items-end justify-center pb-2"
@@ -234,7 +213,6 @@ const TaxCalculator = () => {
                         </div>
                       </div>
 
-                      {/* Savings indicator */}
                       {showChart && (
                         <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
                           <div className="bg-accent-teal text-white px-3 py-1 rounded-full text-xs font-bold animate-fade-in">
@@ -245,9 +223,7 @@ const TaxCalculator = () => {
                     </div>
                   </div>
 
-                  {/* Main Comparison Cards */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
-                    {/* Situação Atual */}
                     <div className="bg-white border-2 border-muted rounded-xl p-4 relative">
                       <div className="text-center">
                         <div className="text-xs font-medium text-muted-foreground mb-2">SEM PLANEJAMENTO</div>
@@ -259,7 +235,6 @@ const TaxCalculator = () => {
                       <div className="absolute -top-2 -right-2 bg-muted text-muted-foreground text-xs px-2 py-1 rounded-full">ATUAL</div>
                     </div>
 
-                    {/* Situação com Onestà */}
                     <div className="bg-white border-2 border-primary/30 rounded-xl p-4 relative">
                       <div className="text-center">
                         <div className="text-xs font-medium text-primary mb-2">COM ONESTÀ</div>
@@ -272,7 +247,6 @@ const TaxCalculator = () => {
                     </div>
                   </div>
 
-                  {/* Destaque da Economia */}
                   <div className="bg-gradient-primary rounded-xl p-6 text-white text-center mb-6">
                     <div className="text-sm mb-2 opacity-90 font-medium">SUA ECONOMIA MENSAL</div>
                     <div className="text-4xl font-bold mb-3">R$ {animatedValue.toLocaleString("pt-BR", { maximumFractionDigits: 0 })}</div>
@@ -282,7 +256,6 @@ const TaxCalculator = () => {
                     <div className="text-xs opacity-90">Valor que você deixa de pagar mensalmente</div>
                   </div>
 
-                  {/* Projeções Temporais */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                     <div className="bg-white border border-muted rounded-lg p-4 text-center">
                       <div className="text-xs text-muted-foreground mb-1 font-medium">ECONOMIA ANUAL</div>
@@ -296,7 +269,6 @@ const TaxCalculator = () => {
                     </div>
                   </div>
 
-                  {/* WhatsApp Button for Desktop */}
                   <div className="hidden lg:block">
                     <Button
                       size="lg"
@@ -317,7 +289,6 @@ const TaxCalculator = () => {
             </div>
           </div>
 
-          {/* Mobile WhatsApp Button - Shows below results */}
           {results && (
             <div className="lg:hidden mt-8">
               <div className="text-center">

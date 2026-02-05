@@ -7,7 +7,6 @@ import { Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import bgContact from "@/assets/bg-contact.jpg";
-import { useParallax } from "@/hooks/use-parallax";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +18,6 @@ const Contact = () => {
   });
 
   const { toast } = useToast();
-  const { ref: sectionRef, offset } = useParallax(0.15);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,31 +42,23 @@ const Contact = () => {
   };
 
   return (
-    <section ref={sectionRef} id="contato" className="py-20 relative overflow-hidden">
-      {/* Parallax Background Image */}
+    <section id="contato" className="py-20 relative overflow-hidden">
+      {/* Fixed Parallax Background Image */}
       <div
-        className="parallax-scroll pointer-events-none"
+        className="absolute inset-0"
         style={{
           backgroundImage: `url(${bgContact})`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          transform: `translate3d(0, ${offset}px, 0)`,
+          backgroundAttachment: "fixed",
         }}
       />
-
-      {/* Glass overlay */}
-      <div className="absolute inset-0 bg-muted/70 backdrop-blur-md pointer-events-none" />
+      <div className="absolute inset-0 bg-muted/95" />
 
       {/* Decorative bronze elements */}
-      <div
-        className="absolute top-20 left-20 w-36 h-36 bg-secondary/20 rounded-full blur-3xl pointer-events-none"
-        style={{ transform: `translate3d(0, ${offset * -0.25}px, 0)` }}
-      />
-      <div
-        className="absolute bottom-10 right-1/4 w-28 h-28 bg-secondary/25 rounded-full blur-3xl pointer-events-none"
-        style={{ transform: `translate3d(0, ${offset * 0.2}px, 0)` }}
-      />
+      <div className="absolute top-20 left-20 w-36 h-36 bg-secondary/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-1/4 w-28 h-28 bg-secondary/25 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
