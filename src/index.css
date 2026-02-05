@@ -25,14 +25,14 @@ All colors MUST be HSL.
     --primary-dark: 187 85% 12%;
     --primary-glow: 187 60% 35%;
 
-    /* Secondary - Gold/Bronze #e4b076 for buttons */
-    --secondary: 30 65% 67%;
-    --secondary-foreground: 30 80% 15%;
-    --secondary-light: 30 50% 85%;
+    /* Secondary - Bronze #b78667 for buttons */
+    --secondary: 23 36% 56%;
+    --secondary-foreground: 23 50% 15%;
+    --secondary-light: 23 30% 75%;
 
     /* Accent colors */
     --accent-teal: 187 80% 20%;
-    --accent-warm: 30 65% 67%;
+    --accent-warm: 23 36% 56%;
 
     --muted: 0 0% 85%;
     --muted-foreground: 210 15% 45%;
