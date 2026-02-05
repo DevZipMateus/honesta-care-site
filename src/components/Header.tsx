@@ -9,13 +9,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#inicio" className="flex items-center space-x-3">
+          <a href="#inicio" className="flex items-center">
             <img 
               src={logoOnesta} 
               alt="Onestà Logo" 
               className="h-10 w-auto"
             />
-            <span className="text-lg font-bold text-primary hidden sm:block">Onestà</span>
           </a>
 
           {/* Desktop Navigation */}
