@@ -66,11 +66,12 @@ const TaxCalculator = () => {
 
   return (
     <section id="calculadora" className="py-20 relative overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img src={bgCalculator} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-white/90"></div>
-      </div>
+      {/* Parallax Background Image */}
+      <div 
+        className="absolute inset-0 parallax-bg"
+        style={{ backgroundImage: `url(${bgCalculator})` }}
+      />
+      <div className="absolute inset-0 bg-white/90"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
