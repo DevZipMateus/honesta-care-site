@@ -10,6 +10,10 @@ const About = () => {
     }} />
       <div className="absolute inset-0 bg-background/95"></div>
       
+      {/* Decorative Gold Elements */}
+      <div className="absolute top-16 left-1/4 w-36 h-36 bg-secondary/15 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-16 right-1/3 w-28 h-28 bg-secondary/20 rounded-full blur-3xl animate-float"></div>
+      
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>

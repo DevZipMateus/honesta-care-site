@@ -181,9 +181,13 @@ const Services = () => {
         <svg className="w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
           <defs>
             <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.8" />
-              <stop offset="50%" stopColor="hsl(var(--accent-teal))" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.8" />
+              <stop offset="0%" stopColor="hsl(var(--secondary))" stopOpacity="0.8" />
+              <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="hsl(var(--secondary))" stopOpacity="0.8" />
+            </linearGradient>
+            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="hsl(var(--secondary))" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="hsl(var(--secondary))" stopOpacity="0.3" />
             </linearGradient>
           </defs>
           

@@ -9,6 +9,11 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
       </div>
 
+      {/* Decorative Gold Elements */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-secondary/20 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-32 right-20 w-48 h-48 bg-secondary/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>
+      <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-secondary/10 rounded-full blur-2xl animate-pulse"></div>
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center h-full">
           <div className="text-center lg:text-left">
