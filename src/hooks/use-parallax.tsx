@@ -1,30 +1,39 @@
 import { useEffect, useRef, useState } from "react";
 
-export const useParallax = (speed: number = 0.5) => {
-  const ref = useRef<HTMLDivElement>(null);
+export function useParallax(speed: number = 0.15) {
+  const ref = useRef<HTMLElement>(null);
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (ref.current) {
-        const rect = ref.current.getBoundingClientRect();
-        const scrolled = window.scrollY;
-        const elementTop = rect.top + scrolled;
-        const relativeScroll = scrolled - elementTop + window.innerHeight;
-        
-        if (relativeScroll > 0 && scrolled < elementTop + rect.height) {
-          setOffset(relativeScroll * speed);
-        }
-      }
+    let raf = 0;
+
+    const update = () => {
+      raf = 0;
+      const el = ref.current;
+      if (!el) return;
+
+      const rect = el.getBoundingClientRect();
+      // rect.top is viewport-relative; multiplying gives a smooth parallax offset in px
+      setOffset(rect.top * -speed);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    const onScrollOrResize = () => {
+      if (raf) return;
+      raf = window.requestAnimationFrame(update);
+    };
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
+    update();
+
+    return () => {
+      window.removeEventListener("scroll", onScrollOrResize);
+      window.removeEventListener("resize", onScrollOrResize);
+      if (raf) window.cancelAnimationFrame(raf);
+    };
   }, [speed]);
 
   return { ref, offset };
-};
+}
 
 export default useParallax;
