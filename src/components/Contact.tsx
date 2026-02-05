@@ -46,7 +46,7 @@ const Contact = () => {
         className="absolute inset-0 parallax-bg"
         style={{ backgroundImage: `url(${bgContact})` }}
       />
-      <div className="absolute inset-0 bg-muted/75"></div>
+      <div className="absolute inset-0 bg-muted/50"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
