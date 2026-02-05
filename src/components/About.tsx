@@ -1,37 +1,26 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import bgAbout from "@/assets/bg-about.jpg";
-import { useParallax } from "@/hooks/use-parallax";
 
 const About = () => {
-  const { ref: sectionRef, offset } = useParallax(0.16);
-
   return (
-    <section ref={sectionRef} id="sobre" className="py-20 relative overflow-hidden">
-      {/* Parallax Background Image */}
+    <section id="sobre" className="py-20 relative overflow-hidden">
+      {/* Fixed Parallax Background Image */}
       <div
-        className="parallax-scroll pointer-events-none"
+        className="absolute inset-0"
         style={{
           backgroundImage: `url(${bgAbout})`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          transform: `translate3d(0, ${offset}px, 0)`,
+          backgroundAttachment: "fixed",
         }}
       />
-
-      {/* Glass overlay (para o background ficar visível e com efeito de vidro) */}
-      <div className="absolute inset-0 bg-background/70 backdrop-blur-md pointer-events-none" />
+      <div className="absolute inset-0 bg-background/95" />
 
       {/* Decorative bronze elements */}
-      <div
-        className="absolute top-16 left-1/4 w-36 h-36 bg-secondary/15 rounded-full blur-3xl pointer-events-none"
-        style={{ transform: `translate3d(0, ${offset * -0.3}px, 0)` }}
-      />
-      <div
-        className="absolute bottom-16 right-1/3 w-28 h-28 bg-secondary/20 rounded-full blur-3xl animate-float pointer-events-none"
-        style={{ transform: `translate3d(0, ${offset * 0.25}px, 0)` }}
-      />
+      <div className="absolute top-16 left-1/4 w-36 h-36 bg-secondary/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-16 right-1/3 w-28 h-28 bg-secondary/20 rounded-full blur-3xl animate-float pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
