@@ -1,26 +1,54 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Users, TrendingUp } from "lucide-react";
+import { useEffect, useState } from "react";
 import heroImage from "@/assets/healthcare-professionals-bg.jpg";
-const Hero = () => {
-  return <section id="inicio" className="relative min-h-screen flex items-center bg-gradient-hero">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <img src={heroImage} alt="Profissionais da área da saúde trabalhando" className="w-full h-full object-cover opacity-20" />
-        <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
-      </div>
 
-      {/* Decorative Gold Elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-secondary/20 rounded-full blur-3xl animate-float"></div>
-      <div className="absolute bottom-32 right-20 w-48 h-48 bg-secondary/15 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>
-      <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-secondary/10 rounded-full blur-2xl animate-pulse"></div>
+const Hero = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <section id="inicio" className="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden">
+      {/* Parallax Background Image */}
+      <div 
+        className="absolute inset-0 will-change-transform"
+        style={{ transform: `translateY(${scrollY * 0.4}px)` }}
+      >
+        <img 
+          src={heroImage} 
+          alt="Profissionais da área da saúde trabalhando" 
+          className="w-full h-[120%] object-cover opacity-25" 
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
+
+      {/* Decorative Gold Elements with Parallax */}
+      <div 
+        className="absolute top-20 left-10 w-32 h-32 bg-secondary/30 rounded-full blur-3xl animate-float"
+        style={{ transform: `translateY(${scrollY * 0.2}px)` }}
+      ></div>
+      <div 
+        className="absolute bottom-32 right-20 w-48 h-48 bg-secondary/25 rounded-full blur-3xl animate-float"
+        style={{ transform: `translateY(${scrollY * -0.15}px)`, animationDelay: '1.5s' }}
+      ></div>
+      <div 
+        className="absolute top-1/3 right-1/4 w-24 h-24 bg-secondary/20 rounded-full blur-2xl animate-pulse"
+        style={{ transform: `translateY(${scrollY * 0.1}px)` }}
+      ></div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center h-full">
           <div className="text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start mb-8 opacity-0 animate-slideInDown" style={{
-            animationDelay: '0.2s'
-          }}>
-              
+              animationDelay: '0.2s'
+            }}>
               <div className="text-left">
                 <h1 className="text-3xl md:text-4xl text-white leading-tight font-bold xl:text-5xl">
                   <span className="block">Onestà Contabilidade</span>
@@ -31,23 +59,22 @@ const Hero = () => {
             </div>
             
             <p className="text-xl text-white/90 mb-8 max-w-2xl opacity-0 animate-fadeInUp" style={{
-            animationDelay: '0.8s'
-          }}>Soluções contábeis completas para profissionais da área da saúde ao seu lado. Expertise, confiança e resultados que impulsionam seu sucesso profissional.</p>
+              animationDelay: '0.8s'
+            }}>Soluções contábeis completas para profissionais da área da saúde ao seu lado. Expertise, confiança e resultados que impulsionam seu sucesso profissional.</p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8 opacity-0 animate-fadeInUp" style={{
-            animationDelay: '1.1s'
-          }}>
+              animationDelay: '1.1s'
+            }}>
               <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground shadow-glow pulse-glow hover-scale-up" onClick={() => window.open('https://wa.me/5555991295341?text=Olá! Gostaria de saber mais sobre os serviços da Onestà Contabilidade.', '_blank')}>
                 Fale Conosco
                 <ArrowRight className="ml-2 w-5 h-5 animate-bounce-subtle" />
               </Button>
               <Button variant="outline" size="lg" onClick={() => document.getElementById('servicos')?.scrollIntoView({
-              behavior: 'smooth'
-            })} className="border-white/80 hover:border-white backdrop-blur-sm text-slate-100 bg-transparent">
+                behavior: 'smooth'
+              })} className="border-white/80 hover:border-white backdrop-blur-sm text-slate-100 bg-transparent">
                 Nossos Serviços
               </Button>
             </div>
-
           </div>
           
           {/* Video Section */}
@@ -72,6 +99,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;

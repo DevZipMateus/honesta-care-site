@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,6 +12,22 @@ const TaxCalculator = () => {
   const [animatedValue, setAnimatedValue] = useState(0);
   const [showChart, setShowChart] = useState(false);
   const [isCalculating, setIsCalculating] = useState(false);
+  
+  const sectionRef = useRef<HTMLElement>(null);
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrollProgress = -rect.top / window.innerHeight;
+        setOffset(scrollProgress * 100);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const calculateTax = () => {
     const monthlyRevenue = parseFloat(revenue) || 0;
@@ -65,18 +81,32 @@ const TaxCalculator = () => {
   };
 
   return (
-    <section id="calculadora" className="py-20 relative overflow-hidden">
+    <section ref={sectionRef} id="calculadora" className="py-20 relative overflow-hidden">
       {/* Parallax Background Image */}
       <div 
-        className="absolute inset-0 parallax-bg"
-        style={{ backgroundImage: `url(${bgCalculator})` }}
+        className="absolute inset-0 will-change-transform"
+        style={{ 
+          backgroundImage: `url(${bgCalculator})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          transform: `translateY(${offset * 0.25}px) scale(1.1)`
+        }}
       />
       <div className="absolute inset-0 bg-white/90"></div>
       
-      {/* Decorative Gold Elements */}
-      <div className="absolute top-10 right-10 w-40 h-40 bg-secondary/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-32 h-32 bg-secondary/15 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-secondary/10 rounded-full blur-2xl animate-pulse"></div>
+      {/* Decorative Gold Elements with Parallax */}
+      <div 
+        className="absolute top-10 right-10 w-40 h-40 bg-secondary/25 rounded-full blur-3xl"
+        style={{ transform: `translateY(${offset * -0.15}px)` }}
+      ></div>
+      <div 
+        className="absolute bottom-20 left-10 w-32 h-32 bg-secondary/20 rounded-full blur-3xl"
+        style={{ transform: `translateY(${offset * 0.2}px)` }}
+      ></div>
+      <div 
+        className="absolute top-1/2 left-1/4 w-24 h-24 bg-secondary/15 rounded-full blur-2xl animate-pulse"
+        style={{ transform: `translateY(${offset * -0.1}px)` }}
+      ></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
@@ -156,10 +186,10 @@ const TaxCalculator = () => {
                           <Button 
                             size="lg" 
                             className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold"
-                        onClick={() => window.open('https://wa.me/5555991295341?text=Olá! Vi a calculadora no site e gostaria de saber mais sobre como economizar nos impostos.', '_blank')}
-                      >
-                        FALAR NO WHATSAPP
-                      </Button>
+                            onClick={() => window.open('https://wa.me/5555991295341?text=Olá! Vi a calculadora no site e gostaria de saber mais sobre como economizar nos impostos.', '_blank')}
+                          >
+                            FALAR NO WHATSAPP
+                          </Button>
                           <p className="text-xs text-muted-foreground mt-2">
                             Consulta gratuita • Resposta imediata
                           </p>
