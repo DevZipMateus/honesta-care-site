@@ -59,7 +59,7 @@ const Contact = () => {
             </p>
           </div>
           
-          <Card className="shadow-lg card-hover-lift glass-effect">
+          <Card className="shadow-lg card-hover-lift bg-white">
             <CardHeader>
               <CardTitle className="text-xl text-primary">Envie sua mensagem</CardTitle>
             </CardHeader>
