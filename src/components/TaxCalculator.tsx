@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calculator, ArrowRight, TrendingUp } from "lucide-react";
+import bgCalculator from "@/assets/bg-calculator.jpg";
 
 const TaxCalculator = () => {
   const [revenue, setRevenue] = useState("");
@@ -64,8 +65,14 @@ const TaxCalculator = () => {
   };
 
   return (
-    <section id="calculadora" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="calculadora" className="py-20 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img src={bgCalculator} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-white/90"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header Section */}
           <div className="text-center mb-12">
