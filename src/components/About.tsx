@@ -2,15 +2,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Award, MapPin, Users, Clock } from "lucide-react";
 import bgAbout from "@/assets/bg-about.jpg";
-
 const About = () => {
-  return (
-    <section id="sobre" className="py-20 relative overflow-hidden">
+  return <section id="sobre" className="py-20 relative overflow-hidden">
       {/* Parallax Background Image */}
-      <div 
-        className="absolute inset-0 parallax-bg"
-        style={{ backgroundImage: `url(${bgAbout})` }}
-      />
+      <div className="absolute inset-0 parallax-bg" style={{
+      backgroundImage: `url(${bgAbout})`
+    }} />
       <div className="absolute inset-0 bg-background/95"></div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -20,15 +17,15 @@ const About = () => {
               Sobre a Onestà Contabilidade
             </h2>
             <div className="space-y-6">
-              <p className="text-lg text-muted-foreground leading-relaxed text-justify">
+              <p className="leading-relaxed text-justify text-[sidebar-primary-foreground] text-slate-950">
                 Nascida em Santa Maria com o propósito de oferecer serviços contábeis especializados para profissionais da área da saúde. Nós entendemos que a gestão fiscal e financeira pode ser uma dor de cabeça. Por isso, simplificamos cada processo, da abertura da sua empresa à otimização dos seus impostos, para que você tenha a tranquilidade de saber que suas finanças estão em boas mãos.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed text-justify">
+              <p className="text-lg leading-relaxed text-justify text-slate-950">
                 Nossa missão é simplificar a vida contábil e fiscal dos profissionais 
                 de saúde, permitindo que eles se concentrem no que fazem de melhor: 
                 cuidar das pessoas.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed text-justify">
+              <p className="text-lg leading-relaxed text-justify text-slate-950">
                 Com uma equipe altamente qualificada e atualizada com as constantes 
                 mudanças na legislação, oferecemos soluções personalizadas que atendem 
                 às necessidades específicas de cada cliente.
@@ -75,8 +72,6 @@ const About = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
