@@ -247,18 +247,38 @@ All colors MUST be HSL.
   }
 }
 
-/* Parallax Effect Styles */
+/* Parallax Effect Styles - Enhanced */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}
+
 .parallax-bg {
-  background-attachment: fixed;
+  position: absolute;
+  inset: -20%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   will-change: transform;
+  z-index: 0;
 }
 
+/* Fallback for iOS and mobile devices */
 @supports (-webkit-touch-callout: none) {
-  /* iOS doesn't support background-attachment: fixed well */
   .parallax-bg {
     background-attachment: scroll;
+    inset: 0;
   }
+}
+
+/* Alternative parallax using transform for better performance */
+.parallax-scroll {
+  position: absolute;
+  inset: -50% 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translateZ(0);
+  will-change: transform;
 }
