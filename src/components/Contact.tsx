@@ -59,11 +59,11 @@ const Contact = () => {
             </p>
           </div>
           
-          <Card className="shadow-lg card-hover-lift bg-white">
-            <CardHeader>
+          <Card className="shadow-lg card-hover-lift bg-white border-0">
+            <CardHeader className="bg-white rounded-t-lg">
               <CardTitle className="text-xl text-primary">Envie sua mensagem</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="bg-white rounded-b-lg">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
