@@ -37,7 +37,7 @@ const About = () => {
             </div>
           </div>
 
-          <Card className="shadow-card card-hover-lift bg-secondary">
+          <Card className="shadow-card card-hover-lift bg-secondary/25">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-primary mb-2">Entre em Contato</h3>
               <p className="text-muted-foreground mb-6">
