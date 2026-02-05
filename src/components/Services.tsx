@@ -281,7 +281,7 @@ const Services = () => {
                     
                     <Dialog>
                       <DialogTrigger asChild>
-                        <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <Button variant="outline" className="w-full group-hover:bg-secondary group-hover:text-secondary-foreground transition-all duration-300">
                           Saiba mais
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </Button>
@@ -327,7 +327,7 @@ const Services = () => {
                               Pronto para transformar sua empresa?
                             </p>
                             <Button 
-                              className="w-full bg-green-600 hover:bg-green-700 text-white"
+                              className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground"
                               onClick={() => window.open('https://wa.me/5555991295341?text=Olá! Gostaria de solicitar um orçamento para ' + service.title + '.', '_blank')}
                             >
                               💬 Solicitar Orçamento
@@ -344,7 +344,7 @@ const Services = () => {
 
           {/* Process Timeline */}
           <div className="lg:col-span-1">
-            <div className="glass-effect rounded-2xl p-6 shadow-lg border border-primary/20 sticky top-8">
+            <div className="bg-secondary/20 rounded-2xl p-6 shadow-lg border border-secondary/30 sticky top-8">
               <div className="text-center mb-8">
                 <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                   <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
@@ -391,7 +391,7 @@ const Services = () => {
 
               <div className="mt-8 pt-6 border-t border-primary/20">
                 <Button 
-                  className="w-full bg-green-600 hover:bg-green-700 text-white"
+                  className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground"
                   onClick={() => window.open('https://wa.me/5555991295341?text=Olá! Gostaria de iniciar o processo de contabilidade com a Onestà.', '_blank')}
                 >
                   💬 Iniciar Processo
