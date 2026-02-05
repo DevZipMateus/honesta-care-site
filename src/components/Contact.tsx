@@ -37,6 +37,95 @@ const Contact = () => {
       [e.target.name]: e.target.value
     }));
   };
-  return;
+  return (
+    <section id="contato" className="py-20 bg-muted/30">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Entre em Contato
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Estamos prontos para ajudar você a economizar nos impostos
+            </p>
+          </div>
+          
+          <Card className="shadow-lg">
+            <CardHeader>
+              <CardTitle className="text-xl text-primary">Envie sua mensagem</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="name">Nome</Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Seu nome completo"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="email">E-mail</Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="seu@email.com"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="phone">Telefone</Label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="(00) 00000-0000"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="profession">Profissão</Label>
+                    <Input
+                      id="profession"
+                      name="profession"
+                      value={formData.profession}
+                      onChange={handleInputChange}
+                      placeholder="Ex: Médico, Dentista..."
+                    />
+                  </div>
+                </div>
+                <div>
+                  <Label htmlFor="message">Mensagem</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Como podemos ajudar você?"
+                    rows={4}
+                    required
+                  />
+                </div>
+                <Button type="submit" className="w-full" size="lg">
+                  <Send className="w-4 h-4 mr-2" />
+                  Enviar Mensagem
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
 };
+
 export default Contact;
