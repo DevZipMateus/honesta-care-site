@@ -71,7 +71,7 @@ const TaxCalculator = () => {
         className="absolute inset-0 parallax-bg"
         style={{ backgroundImage: `url(${bgCalculator})` }}
       />
-      <div className="absolute inset-0 bg-white/90"></div>
+      <div className="absolute inset-0 bg-white/70"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
