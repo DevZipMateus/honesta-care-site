@@ -1,19 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Menu, Phone, Mail } from "lucide-react";
 import { useState } from "react";
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return <header className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 border-b">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            
-            <div>
-              
-              
-            </div>
-          </div>
+          <a href="#inicio" className="flex items-center space-x-3">
+            <img 
+              src="/lovable-uploads/b03073d0-4541-4041-9afd-10f76bfc2ea4.png" 
+              alt="Onestà Logo" 
+              className="h-10 w-auto"
+            />
+            <span className="text-lg font-bold text-primary hidden sm:block">Onestà</span>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
