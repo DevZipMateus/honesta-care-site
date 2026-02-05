@@ -116,7 +116,7 @@ const TaxCalculator = () => {
 
                     <Button 
                       size="lg" 
-                      className="w-full bg-primary hover:bg-primary/90 text-white font-semibold hover-scale-up relative overflow-hidden group"
+                      className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold hover-scale-up relative overflow-hidden group"
                       onClick={calculateTax}
                       disabled={!revenue || parseFloat(revenue) <= 0}
                     >
@@ -150,7 +150,7 @@ const TaxCalculator = () => {
                         <div className="text-center pt-4">
                           <Button 
                             size="lg" 
-                            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold"
+                            className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold"
                         onClick={() => window.open('https://wa.me/5555991295341?text=Olá! Vi a calculadora no site e gostaria de saber mais sobre como economizar nos impostos.', '_blank')}
                       >
                         FALAR NO WHATSAPP
@@ -302,7 +302,7 @@ const TaxCalculator = () => {
                   <div className="hidden lg:block">
                     <Button 
                       size="lg" 
-                      className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold"
+                      className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold"
                       onClick={() => window.open('https://wa.me/5555991295341?text=Olá! Vi a calculadora no site e gostaria de saber mais sobre como economizar nos impostos.', '_blank')}
                     >
                       FALAR NO WHATSAPP
@@ -322,7 +322,7 @@ const TaxCalculator = () => {
               <div className="text-center">
                 <Button 
                   size="lg" 
-                  className="w-full max-w-md bg-green-600 hover:bg-green-700 text-white font-semibold"
+                  className="w-full max-w-md bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold"
                   onClick={() => window.open('https://wa.me/5555991295341?text=Olá! Vi a calculadora no site e gostaria de saber mais sobre como economizar nos impostos.', '_blank')}
                 >
                   FALAR NO WHATSAPP

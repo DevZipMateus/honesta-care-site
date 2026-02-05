@@ -64,7 +64,7 @@ const About = () => {
                   <label htmlFor="message" className="text-sm font-medium">Mensagem</label>
                   <textarea id="message" placeholder="Como podemos ajudá-lo?" rows={3} className="w-full px-3 py-2 border border-input rounded-md"></textarea>
                 </div>
-                <Button type="submit" className="w-full bg-accent-teal hover:bg-accent-teal/90 text-white">
+                <Button type="submit" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground">
                   Enviar Mensagem
                 </Button>
               </form>
