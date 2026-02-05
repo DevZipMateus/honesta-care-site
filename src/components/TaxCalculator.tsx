@@ -88,7 +88,7 @@ const TaxCalculator = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left Side - Calculator Form */}
             <div className="order-1 lg:order-1">
-              <Card className="shadow-lg border border-primary/20">
+              <Card className="shadow-lg border border-primary/20 card-hover-lift">
                 <CardContent className="p-8">
                   <div className="text-center mb-6">
                     <h3 className="text-xl font-bold text-primary mb-2">
@@ -116,10 +116,11 @@ const TaxCalculator = () => {
 
                     <Button 
                       size="lg" 
-                      className="w-full bg-primary hover:bg-primary/90 text-white font-semibold"
+                      className="w-full bg-primary hover:bg-primary/90 text-white font-semibold hover-scale-up relative overflow-hidden group"
                       onClick={calculateTax}
                       disabled={!revenue || parseFloat(revenue) <= 0}
                     >
+                      <span className="absolute inset-0 shimmer-effect opacity-0 group-hover:opacity-100"></span>
                       <Calculator className="w-5 h-5 mr-2" />
                       Calcular Economia
                     </Button>

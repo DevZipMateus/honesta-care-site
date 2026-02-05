@@ -19,7 +19,7 @@ const Hero = () => {
               <div className="text-left">
                 <h1 className="text-3xl md:text-4xl text-white leading-tight font-bold xl:text-5xl">
                   Gestão e Assessoria
-                  <span className="block text-accent-warm"> para a Área da Saúde</span>
+                  <span className="block gradient-text-animated"> para a Área da Saúde</span>
                 </h1>
               </div>
             </div>
@@ -31,9 +31,9 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 mb-8 opacity-0 animate-fadeInUp" style={{
             animationDelay: '1.1s'
           }}>
-              <Button size="lg" className="bg-accent-teal hover:bg-accent-teal/90 text-white shadow-glow" onClick={() => window.open('https://wa.me/5555991295341?text=Olá! Gostaria de saber mais sobre os serviços da Onestà Contabilidade.', '_blank')}>
+              <Button size="lg" className="bg-accent-teal hover:bg-accent-teal/90 text-white shadow-glow pulse-glow hover-scale-up" onClick={() => window.open('https://wa.me/5555991295341?text=Olá! Gostaria de saber mais sobre os serviços da Onestà Contabilidade.', '_blank')}>
                 Fale Conosco
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-5 h-5 animate-bounce-subtle" />
               </Button>
               <Button variant="outline" size="lg" onClick={() => document.getElementById('servicos')?.scrollIntoView({
               behavior: 'smooth'
