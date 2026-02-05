@@ -20,7 +20,7 @@ const Hero = () => {
                 <h1 className="text-3xl md:text-4xl text-white leading-tight font-bold xl:text-5xl">
                   <span className="block">Onestà Contabilidade</span>
                   Gestão e Assessoria
-                  <span className="block gradient-text-animated"> para a Área da Saúde</span>
+                  <span className="block"> para a Área da Saúde</span>
                 </h1>
               </div>
             </div>
