@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Users, TrendingUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import heroImage from "@/assets/healthcare-professionals-bg.jpg";
+import logoOnesta from "@/assets/logo-onesta.png";
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -77,24 +78,19 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Video Section */}
+          {/* Logo Section */}
           <div className="hidden lg:flex justify-center items-center h-full opacity-0 animate-fadeInUp" style={{
             animationDelay: '1.6s'
           }}>
-            <div className="w-full h-5/6 max-w-lg">
-              <video 
-                autoPlay 
-                muted 
-                playsInline
-                className="w-full h-full object-cover rounded-2xl shadow-2xl"
-                style={{ transform: 'scaleX(-1)' }}
-                onEnded={(e) => {
-                  e.currentTarget.style.display = 'block';
-                }}
-              >
-                <source src="/hero-video.webm" type="video/webm" />
-                Seu navegador não suporta o elemento de vídeo.
-              </video>
+            <div className="relative flex items-center justify-center">
+              {/* Gray circle behind logo */}
+              <div className="absolute w-80 h-80 rounded-full bg-muted-foreground/75"></div>
+              {/* Logo */}
+              <img 
+                src={logoOnesta} 
+                alt="Onestà Contabilidade Logo" 
+                className="relative z-10 w-64 h-auto"
+              />
             </div>
           </div>
         </div>
