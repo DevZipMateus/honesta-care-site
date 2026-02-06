@@ -31,7 +31,7 @@ const Header = () => {
           {/* Contact Info */}
           <div className="hidden lg:flex items-center space-x-4">
             <Button variant="outline" size="sm" asChild>
-              <a href="https://app.setfin.com.br/login" target="_blank" rel="noopener noreferrer">
+              <a href="http://app.onestacontabilidade.com.br" target="_blank" rel="noopener noreferrer">
                 Acessar conta
               </a>
             </Button>
@@ -64,7 +64,7 @@ const Header = () => {
               </a>
               <div className="pt-3 border-t space-y-2">
                 <Button variant="outline" size="sm" className="w-full" asChild>
-                  <a href="https://app.setfin.com.br/login" target="_blank" rel="noopener noreferrer">
+                  <a href="http://app.onestacontabilidade.com.br" target="_blank" rel="noopener noreferrer">
                     Acessar conta
                   </a>
                 </Button>
